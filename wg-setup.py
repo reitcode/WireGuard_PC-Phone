@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 import os
 import sys
 import subprocess
@@ -258,7 +259,7 @@ AllowedIPs = 0.0.0.0/0
 PersistentKeepalive = 20
     """
 
-    with open(f"{WG_DIR_CONFIG_PEER}/{prefix_name}_peer.conf", 'w') as f:
+    with open(f"{WG_DIR_CONFIG_PEER}/{prefix_name}.conf", 'w') as f:
         f.write(peer_config)
 
     with open(f"{WG_DIR}/wg0.conf", 'a') as f:
@@ -270,8 +271,8 @@ AllowedIPs = {next_ip}/32
 
         """
         f.write(peer_entry)
-    os.system(f"mv {prefix_name}.conf {prefix_name}.conf")
-    load_peer_config(f"{WG_DIR_CONFIG_PEER}/{prefix_name}.conf", f"{prefix_name}.conf")
+
+    load_peer_config(f"{WG_DIR_CONFIG_PEER}/{prefix_name}_peer.conf", f"{prefix_name}_peer.conf")
 
 
 
